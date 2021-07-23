@@ -23,4 +23,16 @@ class ProdutosController extends Controller
 
         return "Produto Criado com Sucesso!";
     }
+
+    public function show($id)
+    {
+        $produto = Produto::findorfail($id);
+        return view('produtos.show', ['produto' => $produto]);
+    }
+
+    public function edit($id)
+    {
+        $produto = Produto::findorfail($id);
+        return view('produtos.edit', ['produto' => $produto]);
+    }
 }
